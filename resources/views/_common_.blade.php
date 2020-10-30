@@ -9,7 +9,7 @@
 </head>
 <body>
 <nav class="navbar" role="navigation" aria-label="main navigation">
-    <div id="navbarBasicExample" class="navbar-menu">
+    <div id="navbarBasicExample" class="navbar-menu is-active">
         <div class="navbar-start">
             <a class="navbar-item" href="{{ url('/') }}">Home</a>
             @auth
