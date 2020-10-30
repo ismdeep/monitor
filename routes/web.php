@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\StatusController;
+use App\Http\Controllers\StatusAPIController;
 use App\Http\Controllers\SettingController;
 
 /*
@@ -37,3 +38,7 @@ Route::get('/settings', [SettingController::class, 'settings_page'])->middleware
 Route::get('/settings/tokens', [SettingController::class, 'personal_access_tokens_page'])->middleware('auth')->name('tokens');
 Route::get('/settings/tokens/new', [SettingController::class, 'generate_personal_access_token_page'])->middleware('auth');
 Route::post('/settings/tokens/new', [SettingController::class, 'generate_personal_access_token_post'])->middleware('auth');
+
+
+Route::post('/api/status', [StatusAPIController::class, 'update_status']);
+
