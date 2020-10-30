@@ -1,6 +1,7 @@
 @extends('_common_')
 
 @section('body')
-Welcome.
+    <div>
+        {{ $status->id }}
+    </div>
 @endsection
-
