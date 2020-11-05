@@ -11,6 +11,25 @@ use Illuminate\Support\Facades\Auth;
 
 class StatusController extends BaseController {
 
+    public static function human_ago($interval_second) {
+        if ($interval_second < 60) {
+            return "{$interval_second} seconds ago";
+        }
+
+        $interval_second = intval($interval_second / 60);
+        if ($interval_second < 60) {
+            return "{$interval_second} minutes ago";
+        }
+
+        $interval_second = intval($interval_second / 60);
+        if ($interval_second < 60) {
+            return "{$interval_second} hours ago";
+        }
+
+        $interval_second = intval($interval_second / 24);
+        return "{$interval_second} days ago";
+    }
+
     /**
      * Get status list page
      */
@@ -30,6 +49,7 @@ class StatusController extends BaseController {
                 'id' => $status->id,
                 'key' => $status->key_name,
                 'is_alive' => $status->isAlive(),
+                'ago_text' => StatusController::human_ago(time() - $status->updated_at->getTimestamp()),
                 'value' => $status->getValue()
             ];
         }

@@ -17,11 +17,10 @@
                 let html = '';
                 for (i = 0; i < d.data.length; i++) {
                     let tag_class = d.data[i].is_alive ? 'is-success' : 'is-danger';
-                    let tag_value = d.data[i].is_alive ? 'Alive' : 'Down';
                     html += '<div class="control">\n' +
                         '            <a href="/status/'+d.data[i].id+'"><div class="tags has-addons">\n' +
                         '                <span class="tag">' + d.data[i].key + '</span>\n' +
-                        '                <span class="tag ' + tag_class + '">' + tag_value + '</span>\n' +
+                        '                <span class="tag ' + tag_class + '">' + d.data[i].ago_text + '</span>\n' +
                         '            </div></a>\n' +
                         '        </div>';
                 }
