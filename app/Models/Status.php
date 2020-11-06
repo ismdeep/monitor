@@ -40,4 +40,23 @@ class Status extends Model {
         return $this->value;
     }
 
+    public function getAgoInfo() {
+        $interval_second = time() - $this->updated_at->getTimestamp();
+        if ($interval_second < 60) {
+            return "{$interval_second} seconds ago";
+        }
+
+        $interval_second = intval($interval_second / 60);
+        if ($interval_second < 60) {
+            return "{$interval_second} minutes ago";
+        }
+
+        $interval_second = intval($interval_second / 60);
+        if ($interval_second < 60) {
+            return "{$interval_second} hours ago";
+        }
+
+        $interval_second = intval($interval_second / 24);
+        return "{$interval_second} days ago";
+    }
 }

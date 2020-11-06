@@ -2,6 +2,7 @@
 
 @section('body')
     <div>
-        {{ $status->id }}
+        <span>{{ $status->key_name }}</span>
+        <span>{{ $status->getAgoInfo() }}</span>
     </div>
 @endsection

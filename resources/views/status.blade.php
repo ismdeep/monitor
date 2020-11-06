@@ -18,7 +18,7 @@
                 for (i = 0; i < d.data.length; i++) {
                     let tag_class = d.data[i].is_alive ? 'is-success' : 'is-danger';
                     html += '<div class="control">\n' +
-                        '            <a href="/status/'+d.data[i].id+'"><div class="tags has-addons">\n' +
+                        '            <a href="/status/' + d.data[i].id + '"><div class="tags has-addons">\n' +
                         '                <span class="tag">' + d.data[i].key + '</span>\n' +
                         '                <span class="tag ' + tag_class + '">' + d.data[i].ago_text + '</span>\n' +
                         '            </div></a>\n' +
