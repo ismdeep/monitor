@@ -16,6 +16,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string key_name
  * @property string value
  * @property string description
+ * @property string deleted
  * @property \DateTime created_at
  * @property \DateTime updated_at
  */

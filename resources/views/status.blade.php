@@ -1,7 +1,6 @@
 @extends('_common_')
 
 @section('body')
-    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <div class="field is-grouped is-grouped-multiline" id="status-list">
     </div>
 
