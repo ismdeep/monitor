@@ -28,13 +28,26 @@
 
 
         @auth
-            <a class="mdui-btn mdui-btn-dense" href="{{ route('logout') }}">Sign out</a>
+            <div class="">
+                <a class="mdui-btn mdui-btn-dense" mdui-menu="{target: '#menu-profile'}">{{ Auth::user()->name }}</a>
+                <ul class="mdui-menu" id="menu-profile">
+                    <li class="mdui-menu-item">
+                        <a href="{{ route('tokens') }}" class="mdui-ripple">Tokens</a>
+                    </li>
+                    <li class="mdui-divider"></li>
+                    <li class="mdui-menu-item">
+                        <a class="mdui-ripple" href="{{ route('logout') }}">Sign out</a>
+                    </li>
+                </ul>
+            </div>
         @else
             <a class="mdui-btn mdui-btn-dense" href="{{ route('login') }}">Log in</a>
             <a class="mdui-btn mdui-btn-dense" href="{{ route('register') }}">Sign up</a>
         @endif
     </div>
 </header>
+
+
 
 <div class="mdui-container">
     <div class="mdui-card-content">
