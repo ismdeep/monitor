@@ -16,9 +16,6 @@
                 let html = '';
                 for (let i = 0; i < d.data.length; i++) {
                     let tag_class = d.data[i].is_alive ? 'mdui-color-green' : 'mdui-color-red';
-                    if (i > 0) {
-                        html += '&nbsp;&nbsp;';
-                    }
                     html += '<div class="mdui-chip">' +
                         '<a class="mdui-text-color-grey" href="/status/' + d.data[i].id + '">' +
                         '<span class="mdui-chip-title">' + d.data[i].key + '</span>' +
