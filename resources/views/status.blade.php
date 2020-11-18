@@ -2,16 +2,6 @@
 
 @section('body')
     <div class="field is-grouped is-grouped-multiline" id="status-list">
-
-
-
-        &nbsp;&nbsp;&nbsp;&nbsp;
-
-        <div class="mdui-chip">
-            <span class="mdui-chip-title">Example Chip</span>
-            <span class="mdui-chip-icon mdui-color-red"><i class="mdui-icon material-icons">face</i></span>
-        </div>
-
     </div>
 
     <script type="text/javascript">
@@ -29,10 +19,10 @@
                     if (i > 0) {
                         html += '&nbsp;&nbsp;';
                     }
-                    html += '<a href="/status/' + d.data[i].id + '"><div class="mdui-chip">\n' +
+                    html += '<div class="mdui-chip"><a href="/status/' + d.data[i].id + '">\n' +
                         '            <span class="mdui-chip-title">'+d.data[i].key+'</span>\n' +
                         '            <span class="mdui-chip-icon '+tag_class+'"><i class="mdui-icon material-icons">face</i></span>\n' +
-                        '        </div></a>';
+                        '        </a></div>';
                 }
                 status_list_sel.html(html);
             }, 'json');
