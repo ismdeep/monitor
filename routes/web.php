@@ -35,7 +35,6 @@ Route::get('/status/json', [StatusController::class, 'status_json'])->middleware
 Route::get('/status/{id}/delete/json', [StatusController::class, 'delete_status'])->middleware('auth');
 Route::get('/status/{id}', [StatusController::class, 'status_detail'])->middleware('auth');
 Route::get('/status', [StatusController::class, 'homePage'])->middleware('auth');
-Route::get('/settings', [SettingController::class, 'settings_page'])->middleware('auth')->name('settings');
 Route::get('/settings/tokens', [SettingController::class, 'personal_access_tokens_page'])->middleware('auth')->name('tokens');
 Route::get('/settings/tokens/new', [SettingController::class, 'generate_personal_access_token_page'])->middleware('auth');
 Route::post('/settings/tokens/new', [SettingController::class, 'generate_personal_access_token_post'])->middleware('auth');

@@ -12,10 +12,6 @@ use Ramsey\Uuid\Uuid;
 
 
 class SettingController extends BaseController {
-    public function settings_page() {
-        return view('settings');
-    }
-
     public function personal_access_tokens_page() {
         $tokens = Token::where('user_id', Auth::id())->get();
         return view('settings_tokens', ['tokens' => $tokens]);
