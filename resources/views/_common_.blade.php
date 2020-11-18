@@ -17,14 +17,14 @@
 
 <header class="mdui-appbar mdui-appbar-fixed">
     <div class="mdui-toolbar">
-        <span class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-drawer="{target: '#main-drawer', swipe: true}"><i class="mdui-icon material-icons">menu</i></span>
+        <span class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white"
+              mdui-drawer="{target: '#main-drawer', swipe: true}"><i class="mdui-icon material-icons">menu</i></span>
 
 
         <a class="mdui-typo-headline" href="/">Monitor</a>
         {{--            <a class="mdui-typo" href="{{ url('/') }}">Home</a>--}}
 
         <div class="mdui-toolbar-spacer"></div>
-
 
 
         @auth
@@ -48,30 +48,32 @@
 <div class="mdui-drawer" id="main-drawer">
     <div class="mdui-list" mdui-collapse="{accordion: true}" style="margin-bottom: 76px;">
         <a href="/">
-            <li class="mdui-list-item mdui-ripple">
+            <span class="mdui-list-item mdui-ripple">
                 <i class="mdui-list-item-icon mdui-icon material-icons">home</i>
                 <div class="mdui-list-item-content">Home</div>
-            </li>
+            </span>
         </a>
 
 
         @auth
             <a href="{{ url('/status') }}">
-                <li class="mdui-list-item mdui-ripple">
+                <span class="mdui-list-item mdui-ripple">
                     <i class="mdui-list-item-icon mdui-icon material-icons">format_list_bulleted</i>
                     <div class="mdui-list-item-content">Status</div>
-                </li>
+                </span>
             </a>
-            <a href="{{ route('settings') }}">
-                <li class="mdui-list-item mdui-ripple">
+
+            <div class="mdui-collapse-item ">
+                <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
                     <i class="mdui-list-item-icon mdui-icon material-icons">settings</i>
                     <div class="mdui-list-item-content">Settings</div>
-                </li>
-            </a>
+                    <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+                </div>
+                <div class="mdui-collapse-item-body mdui-list">
+                    <a href="{{ route('tokens') }}" class="mdui-list-item mdui-ripple ">Tokens</a>
+                </div>
+            </div>
         @endif
-
-
-
     </div>
 </div>
 
