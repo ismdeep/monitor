@@ -9,6 +9,12 @@
                    placeholder="Username">
         </div>
         <div class="mdui-textfield">
+            <input class="mdui-textfield-input" type="text"
+                   id="email"
+                   name="email"
+                   placeholder="Email">
+        </div>
+        <div class="mdui-textfield">
             <input class="mdui-textfield-input"
                    type="password"
                    id="password"
