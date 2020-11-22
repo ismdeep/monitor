@@ -15,15 +15,8 @@
                 }
                 let html = '';
                 for (let i = 0; i < d.data.length; i++) {
-                    let tag_class = d.data[i].is_alive ? 'mdui-color-green' : 'mdui-color-red';
-                    html += '<div class="mdui-chip mdui-m-x-1">' +
-                        '<a class="mdui-text-color-grey" href="/status/' + d.data[i].id + '">' +
-                        '<span class="mdui-chip-title">' + d.data[i].key + '</span>' +
-                        '<span class="mdui-chip-icon ' + tag_class + '">' +
-                        '<i class="mdui-icon material-icons">face</i>' +
-                        '</span>' +
-                        '</a>' +
-                        '</div>';
+                    let tag_class = d.data[i].is_alive ? 'mdui-text-color-green' : 'mdui-text-color-red';
+                    html += '<a style="padding: 10px;text-decoration: none" class="' + tag_class + '" href="/status/' + d.data[i].id + '">' + d.data[i].key + '[' + d.data[i].ago_text + ']' + '</a>';
                 }
                 status_list_sel.html(html);
             }, 'json');
