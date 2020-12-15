@@ -14,5 +14,4 @@
             <span class="mdui-chip-title">{{$status['key']}} [{{$status['ago_text']}}]</span>
         </a>
     </div>
-
 @endforeach
