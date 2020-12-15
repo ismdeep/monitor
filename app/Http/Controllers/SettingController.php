@@ -29,4 +29,22 @@ class SettingController extends BaseController {
         $token->save();
         return redirect()->route('tokens');
     }
+
+    /**
+     * Revoke Token
+     *
+     * @param Request $request
+     * @throws \Exception
+     */
+    public function revoke_personal_access_token($id) {
+        /* @var $token Token */
+        $token = Token::where('id', $id)->first();
+        if ($token->user_id != Auth::id()) {
+            return response()->json(['code' => 500, 'msg' => 'Invalid access.']);
+        }
+
+        $token->delete();
+
+        return response()->json(['code' => 0, 'msg' => 'Success', 'data' => $token]);
+    }
 }
