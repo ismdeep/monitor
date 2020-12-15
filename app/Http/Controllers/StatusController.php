@@ -18,15 +18,12 @@ class StatusController extends BaseController {
         return view('status');
     }
 
-    /**
-     * Get status list json
-     */
-    public function status_json() {
-        $status_list = Status::where(['user_id' => Auth::id(), 'deleted' => 0])->get();
-        $data = [];
-        foreach ($status_list as $status) {
+    public function statusListPart() {
+        $status_list_raw = Status::where(['user_id' => Auth::id(), 'deleted' => 0])->get();
+        $status_list = [];
+        foreach ($status_list_raw as $status) {
             /* @var $status Status */
-            $data [] = [
+            $status_list [] = [
                 'id' => $status->id,
                 'key' => $status->key_name,
                 'is_alive' => $status->isAlive(),
@@ -34,10 +31,8 @@ class StatusController extends BaseController {
                 'value' => $status->getValue()
             ];
         }
-        return response()->json([
-            'code' => 0,
-            'data' => $data
-        ]);
+
+        return view('status_list_part', ['status_list' => $status_list]);
     }
 
     /**
