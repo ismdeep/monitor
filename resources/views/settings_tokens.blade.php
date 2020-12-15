@@ -22,6 +22,7 @@
                     </div>
                     <div class="mdui-panel-item-body">
                         <p>{{ $token->token }}</p>
+                        <a href="javascript:" class="mdui-btn mdui-btn-dense" onclick="revoke_token({{$token->id}});">Revoke</a>
                     </div>
                 </div>
             @empty
@@ -32,5 +33,27 @@
         </div>
 
     </div>
+
+    <script type="text/javascript">
+        function revoke_token(id) {
+            if (confirm('Revoke this token?')) {
+                $.ajax({
+                    type: 'DELETE',
+                    url: '/settings/tokens/' + id,
+                    success: function(d) {
+                        if (d.code !== 0) {
+                            alert(d.msg);
+                        } else {
+                            location.reload();
+                        }
+                    },
+                    error: function(err){
+                        console.log(err);
+                        alert(err.responseJSON.message);
+                    }
+                });
+            }
+        }
+    </script>
 
 @endsection
