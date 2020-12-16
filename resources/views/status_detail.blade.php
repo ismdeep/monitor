@@ -5,6 +5,11 @@
         <p><span>{{ $status->key_name }}</span></p>
         <p><span>{{ $status->getAgoInfo() }}</span></p>
         <p></p>
+
+        <hr>
+        <pre>{{ $status->value }}</pre>
+        <hr>
+
         <p><a href="javascript:" class="btn" onclick="delete_status({{$status->id}});">Delete</a></p>
     </div>
 
