@@ -44,3 +44,4 @@ Route::get('/settings/tokens/new', [SettingController::class, 'generate_personal
 Route::post('/settings/tokens/new', [SettingController::class, 'generate_personal_access_token_post'])->middleware('auth');
 
 Route::post('/api/status', [StatusAPIController::class, 'update_status']);
+Route::get('/api/statuses', [StatusAPIController::class, 'get_status_list']);
