@@ -80,9 +80,22 @@ class StatusAPIController extends BaseController {
             ];
         }
 
+        $result_status_list = [];
+        foreach ($status_list as $status) {
+            if (!$status['is_alive']) {
+                $result_status_list []= $status;
+            }
+        }
+
+        foreach ($status_list as $status) {
+            if ($status['is_alive']) {
+                $result_status_list []= $status;
+            }
+        }
+
         return response()->json([
             'code' => 0,
-            'status_list' => $status_list
+            'status_list' => $result_status_list
         ]);
     }
 }
