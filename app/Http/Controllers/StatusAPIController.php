@@ -9,6 +9,7 @@ use App\Models\Status;
 use App\Models\Token;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class StatusAPIController extends BaseController {
 
@@ -66,9 +67,22 @@ class StatusAPIController extends BaseController {
 
         $user_id = $token->user_id;
 
+        $status_list_raw = Status::where(['user_id' => $user_id, 'deleted' => 0])->get();
+        $status_list = [];
+        foreach ($status_list_raw as $status) {
+            /* @var $status Status */
+            $status_list [] = [
+                'id' => $status->id,
+                'key' => $status->key_name,
+                'is_alive' => $status->isAlive(),
+                'ago_text' => $status->getAgoInfo(),
+                'value' => $status->getValue()
+            ];
+        }
+
         return response()->json([
             'code' => 0,
-            'user_id' => $user_id
+            'status_list' => $status_list
         ]);
     }
 }
