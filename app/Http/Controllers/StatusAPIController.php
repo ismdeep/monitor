@@ -42,7 +42,9 @@ class StatusAPIController extends BaseController {
             $status->type = 0;
             $status->key_name = $request->post('key');
         }
-
+        if ($status->deleted == true) {
+            $status->deleted = false;
+        }
         $status->value = $request->post('value');
         $status->updated_at = now();
         $status->save();
