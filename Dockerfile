@@ -7,7 +7,8 @@ Add  .             /var/www/monitor/
 
 RUN cd /var/www/monitor;git describe --abbrev=0 --tags > /monitor-version
 RUN cd /var/www/monitor;rm -rfv .git
+RUN cd /var/www/monitor/storage; chmod -R 777 logs
+RUN cd /var/www/monitor/storage; chmod -R 777 framework
 
 COPY nginx-config /etc/nginx/sites-enabled/monitor
-RUN cd /var/www/monitor; mkdir runtime; chmod -R 777 runtime
 RUN cd /var/www/monitor && composer install
