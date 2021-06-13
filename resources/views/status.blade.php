@@ -9,7 +9,7 @@
             $("#status-list").load("/status/status_list_part");
             setInterval(function () {
                 $("#status-list").load("/status/status_list_part");
-            }, 1000);
+            }, 30000);
         });
     </script>
 
